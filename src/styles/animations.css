@@ -1,0 +1,159 @@
+.dancing-cat-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.cat-wrapper {
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  will-change: transform;
+}
+
+.cat-wrapper:hover {
+  transform: scale(1.05);
+}
+
+.cat-image {
+  width: 200px;
+  height: 200px;
+  filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3));
+  transition: filter 0.3s ease;
+}
+
+.cat-wrapper.dancing .cat-image {
+  animation:
+    dance 2s ease-in-out infinite,
+    bounce 1.5s ease-in-out infinite,
+    wiggle 3s ease-in-out infinite,
+    pulse 2.5s ease-in-out infinite;
+}
+
+.cat-wrapper.paused .cat-image {
+  animation-play-state: paused;
+  filter: drop-shadow(0 5px 10px rgba(0,0,0,0.2)) grayscale(0.3);
+}
+
+@keyframes dance {
+  0%, 100% {
+    transform: translateX(0) rotate(0deg);
+  }
+  25% {
+    transform: translateX(-15px) rotate(-5deg);
+  }
+  50% {
+    transform: translateX(0) rotate(0deg);
+  }
+  75% {
+    transform: translateX(15px) rotate(5deg);
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes wiggle {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  10% {
+    transform: rotate(2deg);
+  }
+  20% {
+    transform: rotate(-2deg);
+  }
+  30% {
+    transform: rotate(2deg);
+  }
+  40% {
+    transform: rotate(-2deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.control-button {
+  background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 12px 24px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(238, 90, 36, 0.4);
+}
+
+.control-button:hover {
+  background: linear-gradient(135deg, #ee5a24, #ff6b6b);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(238, 90, 36, 0.6);
+}
+
+.control-button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 10px rgba(238, 90, 36, 0.4);
+}
+
+.instruction {
+  color: white;
+  font-size: 1rem;
+  text-align: center;
+  opacity: 0.9;
+  font-weight: 500;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+@media (max-width: 768px) {
+  .cat-image {
+    width: 150px;
+    height: 150px;
+  }
+
+  .control-button {
+    padding: 10px 20px;
+    font-size: 1rem;
+  }
+
+  .instruction {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .cat-image {
+    width: 120px;
+    height: 120px;
+  }
+
+  .dancing-cat-container {
+    gap: 1.5rem;
+    padding: 1rem;
+  }
+}
