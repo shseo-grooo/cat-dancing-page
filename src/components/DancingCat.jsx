@@ -17,7 +17,7 @@ function DancingCat() {
       >
         <img
           src={catImage}
-          alt="Dancing Cat"
+          alt="춤추는 고양이"
           className="cat-image"
         />
       </div>
@@ -27,10 +27,10 @@ function DancingCat() {
           onClick={toggleAnimation}
           className="control-button"
         >
-          {isAnimating ? '⏸️ Pause' : '▶️ Dance'}
+          {isAnimating ? '⏸️ 일시정지' : '▶️ 춤추기'}
         </button>
         <p className="instruction">
-          Click the cat or button to {isAnimating ? 'pause' : 'start'} dancing!
+          고양이나 버튼을 클릭하여 춤을 {isAnimating ? '일시정지' : '시작'}하세요!
         </p>
       </div>
     </div>

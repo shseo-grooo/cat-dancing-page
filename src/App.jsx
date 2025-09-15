@@ -5,7 +5,7 @@ import './styles/global.css'
 function App() {
   return (
     <div className="app">
-      <h1>Dancing Cat 🐱</h1>
+      <h1>춤추는 고양이 🐱</h1>
       <DancingCat />
     </div>
   )
